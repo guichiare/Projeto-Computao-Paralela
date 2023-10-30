@@ -39,7 +39,7 @@ void Trap(double a, double b, int n, double* global_result)
 	h = (b-a)/n;
 	ln = n/td_count;
 	la = a+td_rank*ln*h;
-	lb = la+lb*h;
+	lb = la+ln*h;
 	td_result = (f(la) + f(lb))/2;
 	
 	for(int i = 1; i <= ln-1; i++)
