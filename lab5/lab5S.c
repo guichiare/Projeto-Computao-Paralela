@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 	printf("Init pos: %.1lf   End pos: %.1lf   Seg num: %d \n", a, b, n);
 	Trap(a, b, n, &global_result);
 
-	printf("Approx result: %.1f \n", global_result);
+	printf("Approx result: %.14e\n", global_result);
 	return 0;
 }
 
@@ -37,7 +37,6 @@ void Trap(double a, double b, int n, double* global_result)
 	{
 		x = a + i * h;
 		result += f(x);
-		printf("%lf\n", result);
 	}
 	result = result*h;
 
