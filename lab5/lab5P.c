@@ -4,6 +4,7 @@
 #include<math.h>
 
 double f(double x);
+
 void Trap(double a, double b, int n, double* global_result);
 
 int main(int argc, char* argv[])
@@ -12,16 +13,16 @@ int main(int argc, char* argv[])
 	double a, b;
 	int n, td_count;
 
-	td_count = strtol(argv[0], NULL, 10);
+	td_count = strtol(argv[1], NULL, 10);
 	printf("threads count: %d\n", td_count);
 	printf("Enter a, b and n: ");
 	scanf("%lf %lf %d", &a, &b, &n);
 	printf("Init pos: %.1lf   End pos: %.1lf   Seg num: %d \n", a, b, n);
 	
-	#pragma omp parallel num_threads(td_count) reduction(+:global_result)
+# pragma omp parallel num_threads(td_count) reduction(+:global_result)
 	Trap(a, b, n, &global_result);
 
-	printf("Approx result: %.1f \n", global_result);
+	printf("Approx result: %.14e \n", global_result);
 	return 0;
 }
 
@@ -34,7 +35,7 @@ void Trap(double a, double b, int n, double* global_result)
 {
 	double h, x, td_result;
 	double la, lb;
-	int ln;
+	int i, ln;
 	int td_rank = omp_get_thread_num();
 	int td_count = omp_get_num_threads();
 
@@ -44,7 +45,7 @@ void Trap(double a, double b, int n, double* global_result)
 	lb = la+ln*h;
 	td_result = (f(la) + f(lb))/2;
 	
-	for(int i = 1; i <= ln-1; i++)
+	for(i = 1; i <= ln-1; i++)
 	{
 		x = la + i * h;
 		td_result += f(x);
@@ -52,6 +53,6 @@ void Trap(double a, double b, int n, double* global_result)
 	}
 	td_result = td_result*h;
 
-	#pragma omp critical
+# pragma omp critical
 	*global_result += td_result;
 }
