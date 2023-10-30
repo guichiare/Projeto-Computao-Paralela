@@ -49,7 +49,6 @@ void Trap(double a, double b, int n, double* global_result)
 	{
 		x = la + i * h;
 		td_result += f(x);
-		printf("%lf\n", td_result);
 	}
 	td_result = td_result*h;
 
