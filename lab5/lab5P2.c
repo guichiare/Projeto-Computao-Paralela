@@ -12,8 +12,8 @@ int main(int argc, char* argv[])
 	omp_lock_t lock;
 	double global_result = 0.0;
 	double a = 0;
-	double b = 100;
-	int n = 10;
+	double b = 100000000;
+	int n = 10000000;
 	int td_count;
 
 	td_count = strtol(argv[1], NULL, 10);
