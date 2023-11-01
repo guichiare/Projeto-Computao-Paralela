@@ -9,15 +9,16 @@ void Trap(double a, double b, int n, double* global_result);
 int main(int argc, char* argv[])
 {
 	double global_result = 0.0;
-	double a, b;
-	int n;
+	double a = 0;
+	double b = 100;
+	int n = 10;
 
-	printf("Enter a, b and n: ");
-	scanf("%lf %lf %d", &a, &b, &n);
+	//printf("Enter a, b and n: ");
+	//scanf("%lf %lf %d", &a, &b, &n);
 	printf("Init pos: %.1lf   End pos: %.1lf   Seg num: %d \n", a, b, n);
 	Trap(a, b, n, &global_result);
 
-	printf("Approx result: %.14e\n", global_result);
+	printf("Approx result: %lf\n", global_result);
 	return 0;
 }
 
