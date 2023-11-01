@@ -5,14 +5,15 @@
 
 double f(double x);
 
-void Trap(double a, double b, int n, double* global_result);
+void Trap(double a, double b, int n, double* global_result, omp_lock_t* lock);
 
 int main(int argc, char* argv[])
 {
+	omp_lock_t lock;
 	double global_result = 0.0;
 	double a = 0;
-	double b = 100000000;
-	int n = 10000000;
+	double b = 100;
+	int n = 10;
 	int td_count;
 
 	td_count = strtol(argv[1], NULL, 10);
@@ -21,8 +22,9 @@ int main(int argc, char* argv[])
 	//scanf("%lf %lf %d", &a, &b, &n);
 	printf("Init pos: %.1lf   End pos: %.1lf   Seg num: %d \n", a, b, n);
 	
+	omp_init_lock(&lock);
 # pragma omp parallel num_threads(td_count) reduction(+:global_result)
-	Trap(a, b, n, &global_result);
+	Trap(a, b, n, &global_result, &lock);
 
 	printf("Approx result: %lf \n", global_result);
 	return 0;
@@ -33,7 +35,7 @@ double f(double x)
 	return exp(x);
 }
 
-void Trap(double a, double b, int n, double* global_result)
+void Trap(double a, double b, int n, double* global_result, omp_lock_t* lock)
 {
 	double h, x, td_result;
 	double la, lb;
@@ -54,6 +56,7 @@ void Trap(double a, double b, int n, double* global_result)
 	}
 	td_result = td_result*h;
 
-# pragma omp critical
+	omp_set_lock(lock);
 	*global_result += td_result;
+	omp_unset_lock(lock);
 }
