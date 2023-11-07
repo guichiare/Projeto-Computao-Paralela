@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
 	int td_count;
 
 	td_count = strtol(argv[1], NULL, 10);
+	printf("Teste omp locks\n");
 	printf("threads count: %d\n", td_count);
 	//printf("Enter a, b and n: ");
 	//scanf("%lf %lf %d", &a, &b, &n);
@@ -26,6 +27,8 @@ int main(int argc, char* argv[])
 # pragma omp parallel num_threads(td_count) reduction(+:global_result)
 	Trap(a, b, n, &global_result, &lock);
 
+	omp_destroy_lock(&lock);
+	printf("\n\n");
 	printf("Approx result: %lf \n", global_result);
 	return 0;
 }
@@ -42,6 +45,7 @@ void Trap(double a, double b, int n, double* global_result, omp_lock_t* lock)
 	int i, ln;
 	int td_rank = omp_get_thread_num();
 	int td_count = omp_get_num_threads();
+	printf("\n Thread %d in execution.", td_rank);
 
 	h = (b-a)/n;
 	ln = n/td_count;
