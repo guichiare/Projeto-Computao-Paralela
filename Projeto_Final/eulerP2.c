@@ -19,13 +19,13 @@ int main(int argc, char* argv[])
 	Euler(n, &global_result);
 
 	printf("\n\n");
-	printf("euler(%d): %.80Lf \n", n, global_result);
+	printf("euler(%d): %.65Lf \n", n, global_result);
 	return 0;
 }
 
 long double fat(int n)
 {
-	long double r = 1;
+	long double r = 1.0;
 	for (int i = 1; i <= n; i++)
 		r *= i;
 	return r;
@@ -33,16 +33,14 @@ long double fat(int n)
 
 void Euler(int n, long double* global_result)
 {
-	long double euler = 0;
+	long double euler = 0.0;
 	int tdr = omp_get_thread_num();
 	int tdc = omp_get_num_threads();
-	int li = tdr*n/tdc;
-	int ln = li+n/tdc;
-	printf("\n Thread %d in execution. [%d -> %d]", tdr, li, ln);
+	printf("\n Thread %d of %d in execution.", tdr, tdc);
 
-	for (li; li < ln; li++)
+	for (int li = tdr; li < n; li += tdc)
 		euler += 1.0/(fat(li));
-	printf("\n thread %d euler: %.80Lf", tdr, euler);
+	printf("\n thread %d euler: %.65Lf", tdr, euler);
 # pragma omp critical
 	*global_result += euler;
 }

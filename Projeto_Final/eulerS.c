@@ -10,14 +10,14 @@ int main(int argc, char* argv[])
 	int n = argc;
 	n = atoi(argv[1]);
 	long double num = Euler(n);
-	printf("\neuler(%d): %.65Lf \n", num);
+	printf("\neuler(%d): %.65Lf \n", n, num);
   
 	return 0;
 }
 
 long double fat(int n)
 {
-	long double r = 1;
+	long double r = 1.0;
 	for (int i = 1; i <= n; i++)
 		r *= i;
 	return r;
