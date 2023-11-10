@@ -28,4 +28,5 @@ descobrir por que o resultado do segundo código paralelo difere com o resultado
 integrar variáveis que possam alcançar mais casas decimais.
 
 Resultados dos testes
+
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/1d26ebb0-57c2-4654-b535-5abf60af01a1)
