@@ -11,7 +11,7 @@ Até que o erro seja corrigido, o valor alcançado pelo código serial será usa
 
 Tempo de processamento serial(e(10000)): 4,674 segundos
 
-O primeiro código paralelo divide o somatório pelo número de processadores em partes iguais e são somados no resultado global.
+O primeiro código paralelo divide o somatório pelo número de processadores em partes iguais e os resultados são somados no resultado global.
 Apesar de apresentar o mesmo resultado do código serial,
 infelizmente esse método não devolveu uma diminuição significativa no tempo de processamento.
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/97e6d42e-d029-43d1-9200-075ccc78a35a)
