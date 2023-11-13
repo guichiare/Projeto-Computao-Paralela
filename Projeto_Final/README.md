@@ -8,6 +8,7 @@ O código Serial por algum motivo retornou apenas 18 casas decimais de euler cor
 sendo que eram esperadas bem mais considerando o número de iterações, 
 uma das metas principais do projeto para a entrega final será descobrir a origem do erro.
 Até que o erro seja corrigido, o valor alcançado pelo código serial será usado para comparação com os códigos paralelos.
+
 Tempo de processamento(e(10000)): 4,674 segundos
 
 O primeiro código paralelo divide o somatório pelo número de processadores em partes iguais e são somados no resultado global.
