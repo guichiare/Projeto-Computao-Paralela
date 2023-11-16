@@ -7,10 +7,11 @@ um código serial e dois códigos com métodos diferentes de paralelização. To
 O código Serial por algum motivo retornou apenas 18 casas decimais de euler corretamente,
 sendo que eram esperadas bem mais considerando o número de iterações, 
 uma das metas principais do projeto para a entrega final será descobrir a origem do erro.
-Até que o erro seja corrigido, o valor alcançado pelo código serial será usado para comparação com os códigos paralelos 
-Tempo de processamento(e(10000)): 4,674 segundos
+Até que o erro seja corrigido, o valor alcançado pelo código serial será usado para comparação com os códigos paralelos.
 
-O primeiro código paralelo divide o somatório pelo número de processadores em partes iguais e são somados no resultado global.
+Tempo de processamento serial(e(10000)): 4,674 segundos
+
+O primeiro código paralelo divide o somatório pelo número de processadores em partes iguais e os resultados são somados no resultado global.
 Apesar de apresentar o mesmo resultado do código serial,
 infelizmente esse método não devolveu uma diminuição significativa no tempo de processamento.
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/97e6d42e-d029-43d1-9200-075ccc78a35a)
@@ -30,3 +31,16 @@ integrar variáveis que possam alcançar mais casas decimais.
 Resultados dos testes
 
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/1d26ebb0-57c2-4654-b535-5abf60af01a1)
+
+
+
+
+
+Projeto Computação Paralela Pt.2
+Correção de erros e Finalização do Projeto
+
+  A primeira e mais clara suspeita da falta de precisão do valor alcançado em euler foi a precisão da variável "long double", sendo assim, uma segunda versão do código serial for implementada utilizando variáveis da biblioteca "gmp" que foram criadas especificamente para alcançar níveis de precisão extraordinários.
+  A segunda versão serial (eulerS2.c)não apenas ultrapassou as 65 casas de teste da comparação inicial como também trouxe uma significante diminuição no tempo de processamento do código.
+  
+<img width="331" alt="image" src="https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/0cf0d1ca-a5ee-4a94-81ee-8cf45ebda94b">
+
