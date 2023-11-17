@@ -36,10 +36,12 @@ Resultados dos testes
 
 
 
+
+
 Projeto Computação Paralela Pt.2
 Correção de erros e Finalização do Projeto
 
-  A primeira e mais clara suspeita da falta de precisão do valor alcançado em euler foi a precisão da variável "long double", sendo assim, uma segunda versão do código serial for implementada utilizando variáveis da biblioteca "gmp" que foram criadas especificamente para alcançar níveis de precisão extraordinários.
-  A segunda versão serial (eulerS2.c)não apenas ultrapassou as 65 casas de teste da comparação inicial como também trouxe uma significante diminuição no tempo de processamento do código.
+  A primeira e mais clara suspeita da falta de precisão do valor alcançado em euler foi o nível de precisão da variável "long double", sendo assim, uma segunda versão do código serial foi implementada utilizando variáveis da biblioteca "gmp", que foram criadas especificamente para alcançar níveis de precisão extraordinários.
+  A segunda versão serial (eulerS2.c) não apenas ultrapassou as 65 casas de teste da comparação inicial como também trouxe uma significante diminuição no tempo de processamento do código.
   
 <img width="738" alt="image" src="https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/6494914e-8640-4c9a-9749-68cf681e990f">
