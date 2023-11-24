@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	int tdc = atoi(argv[2]);
 
 	mpf_t global_result;
-	mpf_init2(global_result, 33220);
+	mpf_init2(global_result, 2097152);
 	mpf_set_ui(global_result, 1);
 
  	#pragma omp parallel num_threads(tdc)
@@ -33,10 +33,10 @@ void Euler(int n, mpf_t* global_result)
 {
 	mpf_t euler, div, fat, one;
 
-	mpf_init2(euler, 33220);
-	mpf_init2(div, 33220);
-	mpf_init2(fat, 33220);
-	mpf_init2(one, 33220);
+	mpf_init2(euler, 2097152);
+	mpf_init2(div, 2097152);
+	mpf_init2(fat, 2097152);
+	mpf_init2(one, 16);
 	mpf_set_ui(euler, 0);
 	mpf_set_ui(div, 1);
 	mpf_set_ui(fat, 1);
