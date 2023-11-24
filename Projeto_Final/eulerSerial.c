@@ -8,13 +8,13 @@ int main(int argc, char* argv[])
 	n = atoi(argv[1]);
 	mpf_t euler, div, fat, one;
 
-	mpf_init2(euler, 33220);
+	mpf_init2(euler, 2097152);
 	mpf_set_ui(euler, 1);
-	mpf_init2(div, 33220);
+	mpf_init2(div, 2097152);
 	mpf_set_ui(div, 1);
-	mpf_init2(fat, 33220);
+	mpf_init2(fat, 2097152);
 	mpf_set_ui(fat, 1);
-	mpf_init2(one, 33220);
+	mpf_init2(one, 2097152);
 	mpf_set_ui(one, 1);
 
 	for (int i = 1; i < n; i++)

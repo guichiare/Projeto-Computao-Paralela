@@ -19,6 +19,11 @@ int main(int argc, char* argv[])
 
   	gmp_printf("\neuler(%d): %.65Ff\n", n, global_result);
 
+	FILE *f;
+	f = fopen("eulerresult.txt", "w");
+	mpf_out_str(f, 10, 0, global_result);
+	fclose(f);
+
 	mpf_clear(global_result);
 
 	return 0;
