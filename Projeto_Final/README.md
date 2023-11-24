@@ -41,14 +41,15 @@ Resultados dos testes
 Projeto Computação Paralela Pt.2
 Correção de erros e Finalização do Projeto
 
-  A primeira e mais clara suspeita da falta de precisão do valor alcançado em euler foi o nível de precisão da variável "long double", sendo assim, uma segunda versão do código serial foi implementada utilizando variáveis da biblioteca "gmp", que foram criadas especificamente para alcançar níveis de precisão extraordinários. Alem disso, ao invés de realizar o fatorial de n a cada iteração do cálculo, fat é inicializado como 1 e é multiplicado pelo índice da iteração para reduzir o número de cálculos que os processadores precisam realizar. Infelizmente esse método inutiliza a estratégia de paralelização usada em "eulerP2.c", mas a redução no tempo de processamento compensa.
-  A segunda versão serial (eulerS2.c) não apenas ultrapassou as 65 casas de teste da comparação inicial como também trouxe uma significante diminuição no tempo de processamento do código, superando as duas primeiras versões paralelas.
+  A primeira e mais clara suspeita da falta de precisão do valor alcançado em euler foi o nível de precisão da variável "long double", sendo assim, uma segunda versão do código serial foi implementada utilizando variáveis da biblioteca "gmp", que foram criadas especificamente para alcançar níveis de precisão extraordinários. Alem disso, ao invés de realizar o fatorial de n a cada iteração do cálculo, fat é inicializado como 1 e é multiplicado pelo índice da iteração para reduzir o número de cálculos que os processadores precisam realizar. A segunda versão serial (eulerS2.c) não apenas ultrapassou as 65 casas de teste da comparação inicial como também trouxe uma significante diminuição no tempo de processamento do código, superando as duas primeiras versões paralelas.
   
 <img width="738" alt="image" src="https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/6494914e-8640-4c9a-9749-68cf681e990f">
 
-  Com a finalidade de alcançar um valor maior de casas decimais de euler, foi necessário alocar mais bits de memória as variáveis usadas no cálculo principal em troca de tempo de processamento. Alocando 2097152 bits de memória à euler, foi possível alcançar um máximo de *236838 casas de euler* atravez de 55000 iterações.
+  Com a finalidade de alcançar um valor maior de casas decimais de euler, foi necessário alocar mais bits de memória as variáveis usadas no cálculo principal em troca de tempo de processamento. Alocando 2097152 bits de memória à euler, foi possível alcançar um máximo de **236838 casas de euler atravez de 55000 iterações.**\n
+  
+A valor alcançado pode ser visto em eulerresult.txt e este valor pode ser testado executando eulerCompare.c
 
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/d4dafbc9-71f4-4642-a8fd-678af42b304f)
-Tempo de processamento serial(e(55000)): 4,674 segundos
-Tempo de processamento paralelo(e(55000)): 2,325 segundos **SpeedUp = 2,01**
-  A valor alcançado pode ser visto em eulerresult.txt e testado executando eulerCompare.c
+
+Tempo de processamento serial(e(55000)): 13m18s\n
+Tempo de processamento paralelo(e(55000)): 7m58s **SpeedUp = 1,66**
