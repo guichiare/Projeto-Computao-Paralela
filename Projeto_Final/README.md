@@ -45,8 +45,8 @@ Correção de erros e Finalização do Projeto
   
 <img width="738" alt="image" src="https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/6494914e-8640-4c9a-9749-68cf681e990f">
 
-  Com a finalidade de alcançar um valor maior de casas decimais de euler, foi necessário alocar mais bits de memória as variáveis usadas no cálculo principal em troca de tempo de processamento. Alocando 2097152 bits de memória à euler, foi possível alcançar um máximo de **236838 casas de euler atravez de 55000 iterações.**\n
-  
+  Com a finalidade de alcançar um valor maior de casas decimais de euler, foi necessário alocar mais bits de memória as variáveis usadas no cálculo principal em troca de tempo de processamento. Alocando 2097152 bits de memória à euler, foi possível alcançar um máximo de **236838 casas de euler atravez de 55000 iterações.** É possível ultrapassar este valor aumentando ainda mais ambos os valores de bits alocados a cada variável e o número de iterações.
+
 A valor alcançado pode ser visto em eulerresult.txt e este valor pode ser testado executando eulerCompare.c
 
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/d4dafbc9-71f4-4642-a8fd-678af42b304f)
