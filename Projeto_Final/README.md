@@ -51,6 +51,9 @@ O valor alcançado pode ser visto em eulerresult.txt e este valor pode ser testa
 
 ![image](https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/d4dafbc9-71f4-4642-a8fd-678af42b304f)
 
+<img width="235" alt="image" src="https://github.com/guichiare/Projeto-Computao-Paralela/assets/64621991/65f87aeb-e9e6-4a94-bf86-29d026bf817b">
+
+
 Tempo de processamento serial(e(55000)): 13m18s
 
 Tempo de processamento paralelo(e(55000)): 7m58s **SpeedUp = 1,66**
